@@ -16,9 +16,7 @@
       background-color: aqua;
       color: white;
       font-size: 4rem;
-      width: 25%;
-
-      height: 25%;
+      max-width: 90%;
       padding: 7rem;
     }
 
@@ -39,10 +37,10 @@
       font-size: 1.1em;
       line-height: 1.4em;
     }
-    .border {
+    .container {
       padding: 2rem;
       border: lightcyan solid 1px;
-
+      max-width: 540px;
     }
   </style>
   <script defer type="module" src="./app.js"></script>
@@ -50,7 +48,7 @@
 
 
 <body class="center">
-  <div class="border">
+  <div class="container">
     <h1>The Observer Pattern</h1>
     <div class="description">
       <p>This simple demo implements in JavaScript a version of the observer pattern. It essentially works like this:</p>
