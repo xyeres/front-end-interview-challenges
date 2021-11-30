@@ -30,3 +30,13 @@ for (var i = 0; i<links.length; i++) {
     console.log(this)
   }).call(links[i])
 }
+
+// Interesting effect using var instead of let in a for loop:
+const arr = [1, 2, 3, 4];
+
+for (var i = 0; i < 4; i++) {
+  console.log(i)
+  setTimeout(function () {
+    console.log(arr[i] + " at index " + i);
+  }, 0);
+}
