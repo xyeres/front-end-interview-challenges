@@ -62,3 +62,37 @@ var isValid = function (s) {
 console.log(isValid("(){}}{")) // false
 console.log(isValid("(({}))")) // true
 console.log(isValid("([)]{}")) // false
+
+
+/**
+ * SIMPLER VERSION
+ */
+
+
+function balancedParentheses(str) {
+  let stack = [];
+
+  let types = {
+    "{": "}",
+    "[": "]",
+    "(": ")"
+  }
+
+  for (let i in str) {
+    let currentElement = str.charAt(i)
+    let peek = stack[stack.length - 1];
+
+    if (currentElement in types) {
+      stack.push(currentElement)
+    } else if (currentElement === types[peek]) {
+      stack.pop()
+    } else {
+      return false;
+    }
+
+  }
+  return stack.length === 0;
+}
+
+console.log(balancedParentheses('{[()]}'))
+console.log(balancedParentheses())
