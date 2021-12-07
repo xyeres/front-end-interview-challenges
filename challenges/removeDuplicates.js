@@ -1,3 +1,5 @@
+// Given sorted array of numbres, remove duplicate nums and return the array
+
 var removeDuplicates = function (nums) {
   nums.map((currentElement, index) => {
     while (nums.indexOf(currentElement, index + 1) != -1) {
