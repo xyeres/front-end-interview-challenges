@@ -16,26 +16,28 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
  */
 
-var nums = [0, 1, 2, 2, 3, 0, 4, 2], val = 2;
+var nums = [3, 2, 2, 3], val = 3
 console.log(nums)
-
-removeElement(nums, val)
+console.log(removeElement(nums, val))
 console.log(nums)
 
 // Find index of target value
-// Change value to '_'
-// Splice out
-// Push to end with a pop
+// Splice out and replace with '_'
 
 /**
  * @param {number[]} nums
  * @param {number} val
  * @return {number}
  */
+
 function removeElement(nums, val) {
-  while (nums.indexOf(val) != -1) {
-    let index = nums.indexOf(val);
-    nums.splice(index, 1);
+  let count = 0;
+  for (const [index, elm] of nums.entries()) {
+    if (elm === val) {
+      nums.splice(index, 1)
+      nums.push('_')
+      count++;
+    }
   }
-  return nums.length;
+  return count;
 };
