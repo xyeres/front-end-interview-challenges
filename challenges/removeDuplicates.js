@@ -1,11 +1,10 @@
 var removeDuplicates = function (nums) {
-  nums.map((value, index) => {
-    let currentElement = nums[index]
+  nums.map((currentElement, index) => {
     while (nums.indexOf(currentElement, index + 1) != -1) {
       nums.splice(index, 1)
     }
   })
-  return nums.length
+  return nums
 }
 
 
