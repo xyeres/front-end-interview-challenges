@@ -12,6 +12,7 @@ My collection of interview challenges, concepts and patterns.
 
 Some of the directories or source files are empty as placeholders, they'll be filled as I get to them.
 
+### Repo Directory 
 In this repo we have:
 - [Challenges](https://github.com/xyeres/front-end-interview-challenges/tree/main/challenges) - leetcode style coding questions
 - [Components](https://github.com/xyeres/front-end-interview-challenges/tree/main/components) - some common components you may be asked to build in an interview
