@@ -26,8 +26,8 @@ function findBin(number) {
   for (let i = 0; i < number; i++) {
     result.push(queue.shift());
 
-    s1 = result[i] + '0' // first iteration: 10 
-    s2 = result[i] + '1' // first iteration: 11
+    s1 = result[i] + '0' // first iteration: 1 // second: 10 // third: 100 // 110 // 1000
+    s2 = result[i] + '1' // first iteration: 1 // second: 11 // third 101 // 111 // 1001
 
     queue.push(s1)
     queue.push(s2)
