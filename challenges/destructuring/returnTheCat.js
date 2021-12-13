@@ -30,6 +30,7 @@ function returnNthCat(n) {
     curpage: 3
   }
 
+  const { cats: { [n]: { name } } } = state;
 
   return name;
 }
