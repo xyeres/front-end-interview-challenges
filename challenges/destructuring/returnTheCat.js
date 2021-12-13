@@ -32,5 +32,34 @@ function returnNthCat(n) {
 
   const { cats: { [n]: { name } } } = state;
 
+
   return name;
 }
+
+
+/**
+ * Your task is to use destructuring to extract and display the name of the second object   in  the array.
+
+  Input#
+  An array of objects
+
+  Output#
+  Name of the second object
+
+  Sample input#
+  [{name: "Kelly",}, {name: "Anna",}]
+  Sample output#
+  "Anna"
+ */
+
+function displayName() {
+  const exampleObject = { collection: [{ name: "Kelly", }, { name: "Anna", }], }
+
+  const { collection: { [1]: { name } } } = exampleObject;
+  const { collection: [, { name: anotherWay }] } = exampleObject;
+
+  console.log(name) //this line should display the correct answer
+  console.log(anotherWay) //this line should display the correct answer
+}
+
+displayName() 
