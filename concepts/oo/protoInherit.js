@@ -3,7 +3,7 @@ function Human(name, age) {
   this.age = age;
 };
 
-function Man(name) {
+function Man(name, age) {
   // write code here
 };
 
@@ -21,8 +21,8 @@ check()
  * Solution:
  * 
 
-function Man(name) {
-  Human.call(this, name);
+function Man(name, age) {
+  Human.call(this, name, age);
 };
 
   // write code here
