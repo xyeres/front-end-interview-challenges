@@ -20,15 +20,16 @@
 
 
 function currying(func) {
-  return function curried(...args) {
+  function curried(...args) {
     if (args.length >= func.length) {
-      return func.apply(this, args)
+      return func(...args)
     } else {
-      return function(...args2) {
-        return curried.apply(this, args.concat(args2))
+      return function (...next) {
+        return curried(...args, ...next)
       }
     }
   }
+  return curried;
 }
 
 function multiply(a, b, c) {
@@ -36,6 +37,9 @@ function multiply(a, b, c) {
 }
 
 let curried = currying(multiply);
+
 console.log(curried(2)(3)(4)) //24
+
 let curriedFixedVales = curried(2, 3)
+
 console.log(curriedFixedVales(2)) //12
