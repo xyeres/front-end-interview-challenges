@@ -14,21 +14,24 @@ function findFirstUnique(arr) {
   //   if (value === 1) return key; // remember maps are ordered, so the first val === 1 is our first unique integer
   // }
 
+  //
+
   let j;
-  outer: for (let i = 0, arrLength = arr.length; i < arrLength; i++) {
-    let current = arr[i];
+  for (let i = 0; i < arr.length; i++) {
     j = 0
-    while (j < arrLength) {
-      if (i !== j && arr[j] == arr[i]) 
+    while (j < arr.length) {
+      if (i !== j && arr[i] == arr[j]) {
         break
-      j++
+      }
+      j += 1
     }
-    if (j == arr.length)
-      return current
+    if (j == arr.length) {
+      return arr[i]
+    }
   }
 
   return null
 
 }
 
-console.log(findFirstUnique([2, 9, 2, 6, 6, 9])) // expected output: 9
+console.log(findFirstUnique([2, 9, 1, 2, 6, 6, 9])) // expected output: 9
