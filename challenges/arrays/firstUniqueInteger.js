@@ -1,4 +1,4 @@
-function findFirstUnique(arr) {
+function findFirstUniqueMap(arr) {
   // let map = new Map(); // use ES6 map because it preserves order
   // let stack = [];
 
@@ -15,23 +15,30 @@ function findFirstUnique(arr) {
   // }
 
   //
+}
 
+function findFirstUnique(arr) {
+  // loop through array as i
+  // loop through remaining of array as j
+    // if i != j && arr[i] == arr[j], break out
+  // if j === arr.length // if we get to the end and still havent found a match, then it is unique
+    // return arr[i]
+  // otherwise return NULL
+  
   let j;
   for (let i = 0; i < arr.length; i++) {
     j = 0
-    while (j < arr.length) {
-      if (i !== j && arr[i] == arr[j]) {
+    while(j < arr.length) {
+      if (i != j && arr[i] === arr[j]) {
         break
       }
-      j += 1
+      j++
     }
-    if (j == arr.length) {
+    if (j === arr.length) {
       return arr[i]
     }
   }
-
   return null
-
 }
 
 console.log(findFirstUnique([2, 9, 1, 2, 6, 6, 9])) // expected output: 9
