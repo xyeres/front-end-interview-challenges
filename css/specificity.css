@@ -1,0 +1,16 @@
+/* 
+
+Gotcha's when dealing with CSS selector specificity issues
+  - The universal selector * has no specificity.
+  - properties with !important are applied even if the selector is less specific.
+  - …Except for the properties with !important in same or a higher specificity selectors later in your CSS.
+  - …Except for the style="" attribute on an element.
+  - If you use a pseudo class like :not() or :is(), the selector inside it with the highest specificity determines the specificity.
+  - Anything in a :where() has no specificity.
+  - For :nth-child() and :nth-last-child() pseudo-classes the specificity is the combination of the pseudo-class itself (0,1,0) plus the most specific of the selectors in them.
+  - Child or sibling selectors (>, ~, +) add no specificity. 
+  
+  thanks to https: //polypane.app/css-specificity-calculator
+  */
+
+  
