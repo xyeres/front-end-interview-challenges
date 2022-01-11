@@ -1,0 +1,47 @@
+*, *:root {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.modal-container {
+  background-color: rgba(0,0,0,0.65);
+  position: absolute;
+  top:0;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-nav {
+  margin:2rem;
+}
+
+.modal-card {
+  margin: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: white;
+  box-shadow: 2px 2px 4px black;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.btn {
+  border: none;
+  background-color: darkslategray;
+  border-radius: 0.25rem;
+  padding: 0.65rem 0.5rem;
+  color: white;
+}
+
+.btn:hover {
+  background-color: darkslateblue;
+}

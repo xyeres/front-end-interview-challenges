@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+  <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+  <nav class="main-nav">
+    <button class="btn" id="toggleBtn">Open Modal</button>
+  </nav>
+  <div hidden id="modal" role="dialog" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
+    <div class="modal-container">
+      <div class="modal-card">
+        <h1 id="dialog1Title" class="title">A modal demo</h1>
+        <p id="dialog1Desc" class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi assumenda
+          nulla, excepturi
+          officiis ipsum similique, hic minus asperiores unde laborum dignissimos facilis obcaecati mollitia soluta enim
+          sint quibusdam quasi. Unde!</p>
+        <button class="btn" id="closeBtn">Close</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const modal = document.getElementById('modal');
+    const openBtn = document.getElementById('toggleBtn');
+    const closeBtn = document.getElementById('closeBtn')
+
+    const toggleHidden = function (el) {
+      el.toggleAttribute('hidden')
+    }
+
+    openBtn.addEventListener('click', () => toggleHidden(modal))
+    closeBtn.addEventListener('click', () => toggleHidden(modal))
+  </script>
+</body>
+
+</html>
