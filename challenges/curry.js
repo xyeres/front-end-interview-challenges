@@ -20,7 +20,7 @@
 
 
 function currying(func) {
-  function curried(...args) {
+  return function curried(...args) {
     if (args.length >= func.length) {
       return func(...args)
     } else {
@@ -29,7 +29,6 @@ function currying(func) {
       }
     }
   }
-  return curried;
 }
 
 function multiply(a, b, c) {
