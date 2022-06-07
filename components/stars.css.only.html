@@ -9,11 +9,21 @@
 <body>
 
   <div class="rating">
-    <input type="radio" name="rating" value="5" id="5"><label for="5">✯</label>
-    <input type="radio" name="rating" value="4" id="4"><label for="4">✯</label>
-    <input type="radio" name="rating" value="3" id="3"><label for="3">✯</label>
-    <input type="radio" name="rating" value="2" id="2"><label for="2">✯</label>
-    <input type="radio" name="rating" value="1" id="1"><label for="1">✯</label>
+    <input aria-flowto="rating1" type="radio" name="rating" value="5" id="rating5"><label for="rating5">
+      ✮<span class="rating__star">5 stars</span>
+    </label>
+    <input aria-flowto="rating5" type="radio" name="rating" value="4" id="rating4"><label for="rating4">
+      ✮<span class="rating__star">4 stars</span>
+    </label>
+    <input aria-flowto="rating4" type="radio" name="rating" value="3" id="rating3"><label for="rating3">
+      ✮<span class="rating__star">3 stars</span>
+    </label>
+    <input aria-flowto="rating3" type="radio" name="rating" value="2" id="rating2"><label for="rating2">
+      ✮<span class="rating__star">2 stars</span>
+    </label>
+    <input aria-flowto="rating2" type="radio" name="rating" value="1" id="rating1"><label for="rating1">
+      ✮<span class="rating__star">1 stars</span>
+    </label>
   </div>
 
 
