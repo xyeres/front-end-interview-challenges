@@ -15,27 +15,32 @@
 // O(n+m) because we have to loop through both arrays
 
 function mergeArrays(arr1, arr2) {
-  let sorted = []
-  let leftIndex = 0, rightIndex = 0;
+  // two pointers, left and right that move through each array 
+  // check to see if left is smaller than right, if so, push it to result, 
+  // else push it to right
 
-  while (leftIndex < arr1.length && rightIndex < arr2.length) {
-    if (arr1[leftIndex] < arr2[rightIndex]) {
-      sorted.push(arr1[leftIndex])
-      leftIndex++;
+  let left = 0, right = 0;
+  let result = [];
+
+  while (left < arr1.length && right < arr2.length) {
+    if (arr1[left] < arr2[right]) {
+      result.push(arr1[left])
+      left++;
     } else {
-      sorted.push(arr2[rightIndex]);
-      rightIndex++;
+      result.push(arr2[right])
+      right++
     }
   }
+  // in the end, check to see if there is remaining elements in either array, 
+  // if so, slice those out using corrisponding pointer and concat to result
 
-  let leftRemains = arr1.splice(leftIndex);
-  let rightRemains = arr2.splice(rightIndex);
-  
-  let results = sorted.concat(leftRemains).concat(rightRemains)
-  return results;
-} 
+  let arr1Remaining = arr1.slice(left)
+  let arr2Remaining = arr2.slice(right)
 
-console.log(mergeArrays([1, 3, 4, 5, 899], [2, 6, 7, 8,700]))
+  return result.concat(arr1Remaining).concat(arr2Remaining)
+}
+
+console.log(mergeArrays([1, 3, 4, 5, 899], [2, 6, 7, 8, 700]))
 
 
 
@@ -43,6 +48,9 @@ console.log(mergeArrays([1, 3, 4, 5, 899], [2, 6, 7, 8,700]))
 // Spread Operator Solution: 
 // O(nlogn) sicne we are using the sort function
 function mergeArraysSpread(arr1, arr2) {
-  return [...arr1, ...arr2].sort((a, b) => a-b)
+  return [...arr1, ...arr2].sort((a, b) => a - b)
 }
 console.log(mergeArraysSpread([1, 3, 4, 5], [2, 6, 7, 8]))
+
+// Array.prototype.sort() converts elements to strings and sorts in descending order 
+// by UTF-16 code unit values
