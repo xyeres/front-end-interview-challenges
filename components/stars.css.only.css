@@ -1,30 +1,33 @@
+body {
+  display: grid;
+  place-content: center;
+}
+
 .rating {
   display: flex;
   flex-direction: row-reverse;
 }
 
+.rating input,
 .rating__star {
   position: absolute;
   left:-100vw;
-  font-size: 1px;
-}
-
-.rating input {
-  position: absolute;
-  left: -100vw;
 }
 
 .rating label {
-  width:1.23em;
   font-size: 15vw;
 }
 
-.rating label:hover ~ label,
 .rating label:hover,
+.rating label:hover ~ label,
 .rating input:checked ~ label {
   color:gold;
 }
 
-.rating:hover input:checked ~ label{
-  opacity: 0.5;
+
+.rating:hover input:checked ~ label {
+  opacity: 0.4;
 }
+
+/* div + p: selects the p that immediately comes after div (sibling, not child) */
+/* div ~ p: selects all p tags that come after a div */
