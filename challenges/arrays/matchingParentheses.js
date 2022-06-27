@@ -23,7 +23,7 @@ Stack.prototype.isEmpty = function () {
   return this.array.length === 0;
 }
 
-Stack.prototype.peek = function() {
+Stack.prototype.peek = function () {
   return this.array[this.array.length - 1];
 }
 
@@ -96,3 +96,33 @@ function balancedParentheses(str) {
 
 console.log(balancedParentheses('{[()]}'))
 console.log(balancedParentheses())
+
+
+
+function balancedParentheses2(str) {
+  let stack = [];
+  let types = {
+    '{': '}',
+    '[': ']',
+    '(': ')'
+  }
+
+  for (let i in str) {
+    let peek = stack[stack.length - 1]
+    let current = str.charAt(i)
+
+    if (current in types) {
+      stack.push(current)
+    } else if (current === types[peek]) {
+      stack.pop()
+    } else {
+      return false
+    }
+  }
+  return stack.length == 0
+
+}
+
+
+console.log('latest', balancedParentheses2('{[()]}'))
+console.log(balancedParentheses2('{[(])}'))
