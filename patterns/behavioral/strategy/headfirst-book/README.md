@@ -1,4 +1,4 @@
-#### Modified example inspired by the book Head First Design Patterns published by O'Reily
+#### Modified example inspired by the book Head First Design Patterns published by O'Reilly
 
 The strategy pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independantly from the clients that use it. 
 
