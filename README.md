@@ -20,4 +20,3 @@ In this repo we have:
 - [Data structures](https://github.com/xyeres/front-end-interview-challenges/tree/main/data-structures) - common DSs that you may be asked to write or elaborate your understanding of
 - [Patterns](https://github.com/xyeres/front-end-interview-challenges/tree/main/patterns) - common creational, structural, behavioral & architectural patterns you should be familiar with
 - [Utilities](https://github.com/xyeres/front-end-interview-challenges/tree/main/utlities) - utility functions you may asked to write
-- [Games](https://github.com/xyeres/front-end-interview-challenges/tree/main/games) - code challenges that are in the form of simple game creation
