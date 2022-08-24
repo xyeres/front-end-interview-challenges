@@ -1,4 +1,4 @@
-import { CliDisplay } from "./concretions/CurrentConditionDisplay";
+import { CliDisplay } from "./concretions/CliDisplay";
 import { WeatherData } from "./concretions/WeatherData";
 
 {
