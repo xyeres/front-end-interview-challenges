@@ -1,4 +1,6 @@
 function maxSubArraySum(nums, size) {
+  if (!nums.length) return;
+
   let currSum = 0;
   let maxSumSeen = -Infinity;
 
@@ -13,6 +15,6 @@ function maxSubArraySum(nums, size) {
   return maxSumSeen;
 }
 
-const arr1 = [1, 2, 3, 5, 4, 8, 6, 2];
+const arr1 = [1,1,1,1,1,1,1,1,3]; 
 
-console.log(maxSubArraySum(arr1, 3)); // 18
+console.log(maxSubArraySum(arr1, 3)); // 5 
