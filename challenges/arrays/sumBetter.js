@@ -21,19 +21,17 @@
  */
 
 function findSum(arr, value) {
-  // my initial thought is to find the difference between the value and the current item, 
+  // my initial thought is to find the difference between the value and the current item,
   // if there is a 'match' that fills the 2nd half, we would have to keep track of items with hash
-  let seen = {}
+  let seen = {};
   for (let i = 0; i < arr.length; i++) {
-    let difference = value - arr[i]
-    let currElement = arr[i]
+    let difference = value - arr[i];
+    let currElement = arr[i];
     if (seen[currElement] !== undefined) {
-      return [currElement, seen[currElement]]
-    } else {
-      seen[difference] = arr[i]
+      return [currElement, seen[currElement]];
     }
+    seen[difference] = arr[i];
   }
 }
 
-console.log(findSum([1, 2, 3], 5))
-
+console.log(findSum([1, 2, 3], 5));
