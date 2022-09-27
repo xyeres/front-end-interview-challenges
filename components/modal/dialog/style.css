@@ -4,10 +4,11 @@
 
 ::backdrop {
   background-color: black;
-  opacity: .6;
+  opacity: 0.2;
 }
 
-dialog {
-  background-color: black;
-  color:white;
+:modal {
+  border: none;
+  background-color: cornsilk;
+  box-shadow: 0 0 3em rgba(0 0 0 / 0.5);
 }
