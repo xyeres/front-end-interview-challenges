@@ -1,0 +1,13 @@
+.dialog {
+  max-width: 50ch;
+}
+
+::backdrop {
+  background-color: black;
+  opacity: .6;
+}
+
+dialog {
+  background-color: black;
+  color:white;
+}
