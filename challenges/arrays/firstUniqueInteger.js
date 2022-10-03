@@ -1,25 +1,25 @@
 function findFirstUnique(arr) {
-  // create a map,
-  const arrMap = new Map();
+  // Using map
+  // map preserves order of elements added, so we can loop back through it at the end and return the first placed original item
 
-  arr.forEach((v) => {
-    if (arrMap.has(v)) {
-      arrMap.set(v, 0)
+  var seen = new Map();
+
+  arr.forEach((n) => {
+    if (seen.has(n)) {
+      seen.set(n, 0);
     } else {
-      arrMap.set(v, 1)
+      seen.set(n, 1);
     }
-  })
-  // add each item in the array as a key, val as 1 to start
-  // if item is encounted again, make val = 0
+  });
 
-  for (let [key, val] of arrMap) {
-    if (val === 1) {
-      return key
+  // loop over map to return first element
+  for (let [key, val] of seen) {
+    if (val == 1) {
+      return key;
     }
   }
-
-  return -1
-  // loop through map, if value == 0, return that key
+  return -1;
 }
 
-console.log(findFirstUnique([1, 1, 1, 2,2, 6, 6, 9])) // expected output: 1
+console.log(findFirstUnique([9, 2, 3, 2, 6, 6])); // expect 9
+console.log(findFirstUnique([4, 5, 1, 2, 0, 4])); // expect 5
