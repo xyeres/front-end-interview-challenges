@@ -46,11 +46,13 @@ console.log(mergeArrays([1, 3, 4, 5, 899], [2, 6, 7, 8, 700]))
 
 
 // Spread Operator Solution: 
-// O(nlogn) sicne we are using the sort function
+// O(nlogn) since we are using the sort function
 function mergeArraysSpread(arr1, arr2) {
   return [...arr1, ...arr2].sort((a, b) => a - b)
 }
+
 console.log(mergeArraysSpread([1, 3, 4, 5], [2, 6, 7, 8]))
 
 // Array.prototype.sort() converts elements to strings and sorts in descending order 
-// by UTF-16 code unit values
+// by UTF-16 code unit values (lexicographical) so 50 will be considered greater than 300
+// because 5 is greater than 3
