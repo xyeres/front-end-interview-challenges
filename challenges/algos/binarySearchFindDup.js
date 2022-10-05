@@ -19,6 +19,6 @@ function duplicateNumber(nums) {
     }
 }
 
-duplicateNumber([1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]);
-duplicateNumber([1, 1, 2, 3, 4]);
-duplicateNumber([1, 1]);
+console.log(duplicateNumber([1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10]))
+console.log(duplicateNumber([1, 1, 2, 3, 4]))
+console.log(duplicateNumber([1, 1]))
