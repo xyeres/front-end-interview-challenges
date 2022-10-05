@@ -1,17 +1,16 @@
 function findProduct(arr) {
-  // find product of all numbers in array
-  // to find a specifc answer for an index:
-  // take the value at that index and divide the product of all numbers by it and
-  // insert it into a new array
-  let totalProduct = arr.reduce((totalProduct, curr) => (totalProduct = totalProduct * curr), 1)
+  // multiple all numbers together to find totalProduct (reduce?)
+  var totalProduct = arr.reduce((prev, current) => {
+      return prev * current
+  }, 1)
 
-  let answer = [];
+  // to calc each position val in arr, 
+  // arr[i] = totalProduct / arr[i]
 
-  arr.forEach((curr) => {
-    let result = totalProduct / curr;
-    answer.push(result)
+  arr.forEach((val, indx) => {
+      arr[indx] = totalProduct / val
   })
-  return answer;
+  return arr
 }
 
 console.log(findProduct([1, 2, 3, 4]))
