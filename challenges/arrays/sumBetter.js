@@ -23,15 +23,26 @@
 function findSum(arr, value) {
   // my initial thought is to find the difference between the value and the current item,
   // if there is a 'match' that fills the 2nd half, we would have to keep track of items with hash
-  let seen = {};
-  for (let i = 0; i < arr.length; i++) {
-    let difference = value - arr[i];
-    let currElement = arr[i];
-    if (seen[currElement] !== undefined) {
-      return [currElement, seen[currElement]];
+
+  /**
+   * Loop through array
+   * store each element in a hashmap, where (key = value - arr[i]), (val = arr[i])
+   * if a key is not undefined, that means we found a match,
+   * return [arr[i], hashmap[arr[i]]]
+   */
+
+  var seen = {};
+
+  for (let currentEl of arr) {
+    let difference = value - currentEl;
+
+    if (seen[currentEl] != undefined) {
+      return [currentEl, seen[currentEl]];
+    } else {
+      seen[difference] = currentEl;
     }
-    seen[difference] = arr[i];
   }
+  return false;
 }
 
 console.log(findSum([1, 2, 3], 5));
