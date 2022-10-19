@@ -1,13 +1,19 @@
 // problem located at https://leetcode.com/problems/n-ary-tree-preorder-traversal
-
+// this is an N-Ary tree... Not to be confused with a binary tree, 
+// there is no left or right pointers on the Node, just an array of children | null 
 /**
  * // Definition for a Node.
+ * **
  * function Node(val, children) {
  *    this.val = val;
  *    this.children = children;
  * };
  */
 
+/**
+ * @param {number} val
+ * @param {TreeNode[] | null} children
+ */
 class TreeNode {
   constructor(val, children) {
     this.val = val;
