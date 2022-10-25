@@ -35,7 +35,7 @@ var longestCommonPrefix = function (strs) {
       // trim the prefix by 1 character until there is a common prefix or the len of prefix is 0,
       prefix = prefix.substring(0, prefix.length - 1);
         // return '' if len of prefix is less than 2
-      if (prefix.length < 2) return '';
+      if (prefix.length < 1) return '';
     }
   }
   // else return remaining prefix if one exists after looping through all words
