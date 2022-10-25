@@ -1,3 +1,8 @@
+/**
+ * Sliding Window method to find maximum sub array sum of size K
+ * Learn method: https://www.youtube.com/watch?v=JWHjqjk9ZYc
+ */
+
 function maxSubArraySum(nums, size) {
   if (!nums.length) return;
 
