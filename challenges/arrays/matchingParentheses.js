@@ -1,128 +1,115 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
+// /**
+//  * @param {string} s
+//  * @return {boolean}
+//  */
 
-function Stack(array) {
-  this.array = [];
+// function Stack(array) {
+//   this.array = [];
 
-  if (array) {
-    this.array = array;
-  }
-}
+//   if (array) {
+//     this.array = array;
+//   }
+// }
 
-Stack.prototype.pop = function () {
-  return this.array.pop()
-}
+// Stack.prototype.pop = function () {
+//   return this.array.pop()
+// }
 
-Stack.prototype.push = function (value) {
-  this.array.push(value)
-}
+// Stack.prototype.push = function (value) {
+//   this.array.push(value)
+// }
 
-Stack.prototype.isEmpty = function () {
-  return this.array.length === 0;
-}
+// Stack.prototype.isEmpty = function () {
+//   return this.array.length === 0;
+// }
 
-Stack.prototype.peek = function () {
-  return this.array[this.array.length - 1];
-}
+// Stack.prototype.peek = function () {
+//   return this.array[this.array.length - 1];
+// }
 
-var isValid = function (s) {
-  const types = {
-    "(": ")",
-    "[": "]",
-    "{": "}"
-  }
+// var isValid = function (s) {
+//   const types = {
+//     "(": ")",
+//     "[": "]",
+//     "{": "}"
+//   }
 
-  let lastElement = null;
+//   let lastElement = null;
 
-  // create a buffer stack to keep track of the parentheses
-  let bufferStack = new Stack();
+//   // create a buffer stack to keep track of the parentheses
+//   let bufferStack = new Stack();
 
-  // Loop through the length of s
-  for (let i = 0, stringLen = s.length; i < stringLen; i++) {
-    let currentElement = s.charAt(i);
+//   // Loop through the length of s
+//   for (let i = 0, stringLen = s.length; i < stringLen; i++) {
+//     let currentElement = s.charAt(i);
 
-    // If opening parentheses:    
-    if (currentElement in types) {
-      bufferStack.push(currentElement);
-      lastElement = currentElement;
+//     // If opening parentheses:
+//     if (currentElement in types) {
+//       bufferStack.push(currentElement);
+//       lastElement = currentElement;
 
-    } else { // it must be a closing element
-      if (types[bufferStack.peek()] === currentElement) {
-        bufferStack.pop()
-      } else {
-        return false
+//     } else { // it must be a closing element
+//       if (types[bufferStack.peek()] === currentElement) {
+//         bufferStack.pop()
+//       } else {
+//         return false
+//       }
+//     }
+//   }
+//   return bufferStack.isEmpty();
+// };
+
+// console.log(isValid("(){}}{")) // false
+// console.log(isValid("(({}))")) // true
+// console.log(isValid("([)]{}")) // false
+
+// /**
+//  * SIMPLER VERSION
+//  */
+
+// function balancedParentheses(str) {
+//   let stack = [];
+
+//   let types = {
+//     "{": "}",
+//     "[": "]",
+//     "(": ")"
+//   }
+
+//   for (let i in str) {
+//     let currentElement = str.charAt(i)
+//     let peek = stack[stack.length - 1];
+
+//     if (currentElement in types) {
+//       stack.push(currentElement)
+//     } else if (currentElement === types[peek]) {
+//       stack.pop()
+//     } else {
+//       return false;
+//     }
+
+//   }
+//   return stack.length === 0;
+// }
+
+// console.log(balancedParentheses('{[()]}'))
+// console.log(balancedParentheses())
+
+function balancedParentheses2(s) {
+  let stack = [];
+  let types = { "{": "}", "[": "]", "(": ")" };
+
+  for (let c of s) {
+    if (types[c]) {
+      stack.push(c);
+    } else {
+      if (c !== types[stack.pop()]) {
+        return false;
       }
     }
   }
-  return bufferStack.isEmpty();
-};
-
-console.log(isValid("(){}}{")) // false
-console.log(isValid("(({}))")) // true
-console.log(isValid("([)]{}")) // false
-
-
-/**
- * SIMPLER VERSION
- */
-
-
-function balancedParentheses(str) {
-  let stack = [];
-
-  let types = {
-    "{": "}",
-    "[": "]",
-    "(": ")"
-  }
-
-  for (let i in str) {
-    let currentElement = str.charAt(i)
-    let peek = stack[stack.length - 1];
-
-    if (currentElement in types) {
-      stack.push(currentElement)
-    } else if (currentElement === types[peek]) {
-      stack.pop()
-    } else {
-      return false;
-    }
-
-  }
-  return stack.length === 0;
+  return stack.length == 0;
 }
 
-console.log(balancedParentheses('{[()]}'))
-console.log(balancedParentheses())
-
-
-
-function balancedParentheses2(str) {
-  let stack = [];
-  let types = {
-    '{': '}',
-    '[': ']',
-    '(': ')'
-  }
-
-  for (let i in str) {
-    let peek = stack[stack.length - 1]
-    let current = str.charAt(i)
-
-    if (current in types) {
-      stack.push(current)
-    } else if (current === types[peek]) {
-      stack.pop()
-    } else {
-      return false
-    }
-  }
-  return stack.length == 0
-
-}
-
-
-console.log('latest', balancedParentheses2('{[()]}'))
-console.log(balancedParentheses2('{[(])}'))
+console.log(balancedParentheses2("((){}[[[()]]])]"));
+console.log(balancedParentheses2("{[()]}"));
