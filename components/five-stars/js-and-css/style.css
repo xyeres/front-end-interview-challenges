@@ -1,0 +1,23 @@
+.stars {
+  display: flex;
+  flex-direction: row-reverse;
+  list-style: none;
+  /* Optional Styling  */
+  font-size: 2rem;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  margin: 0;
+  padding: 0;
+}
+
+.stars li:hover,
+.stars li:hover ~ li {
+  color: gold;
+  cursor: pointer;
+}
+
+.gold {
+  color: gold;
+}
