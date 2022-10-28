@@ -17,8 +17,8 @@ Array.prototype.myFilter = function filter(cb, thisArg) {
   return result;
 };
 
-let r = [1, 4, 3, 2, 4, 5].filter(compair);
-let s = [1, 4, 3, 2, 4, 5].myFilter(compair);
+let r = [1, 3, 4, 3, 2, 4, 5].filter(compair);
+let s = [1, 3, 4, 3, 2, 4, 5].myFilter(compair);
 
 console.log(r);
 console.log(s);
