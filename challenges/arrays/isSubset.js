@@ -16,12 +16,39 @@ var list2 = [7, 1, -2];
 // Sample Output#
 // true
 
+// Map solution that does not take order into consideration
+
+function isSubsetMap(list1, list2) {
+  if (list2.length > list1.length) {
+    return false;
+  }
+
+  var seen = new Map();
+
+  for (let [i, val] of list1.entries()) {
+    seen.set(val, i);
+  }
+
+  for (let val of list2) {
+    if (!seen.has(val)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(isSubsetMap(list1, list2));
+
+// Solution that checks which list is short and
+// uses sliding window to check if a subset is found..
+// more complicated than problem statement requires
 function isSubset(list1, list2) {
   // which is smaller
   // grab sliding window
   // subtract window from smaller array
   // if 0 return true
-  var short; 
+  var short;
   var long;
 
   if (list1.length < list2.length) {
@@ -39,7 +66,6 @@ function isSubset(list1, list2) {
     window.push(long[i]);
 
     let matchCount = 0;
-
 
     if (window.length >= short.length) {
       for (let j = 0; j < window.length; j++) {
@@ -59,4 +85,4 @@ function isSubset(list1, list2) {
   return false;
 }
 
-console.log(isSubset(list1, list2))
+console.log(isSubset(list1, list2));
