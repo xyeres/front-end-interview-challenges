@@ -87,15 +87,14 @@ class ShipDataProcessor {
   _shipNameFilter = null;
   _shipData = [];
 
-  _mostExpensiveShip = null;
-  _leasExpensiveShip = null;
-
   constructor(shipNameFilter, url = this._shipsDataUrl) {
     this._shipNameFilter = shipNameFilter.toLowerCase();
   }
 
   async syncShipsAPI() {
     console.log("Updating data from API...");
+    let page = 1;
+    console.log(`Getting page ${page}`);
     let res = await fetch(this._shipsDataUrl);
     let json = await res.json();
     let nextPage = json.next;
@@ -103,6 +102,9 @@ class ShipDataProcessor {
     let buffer = [...json.results];
 
     while (nextPage != null) {
+      page++;
+      console.log(`Getting page ${page}`);
+
       res = await fetch(nextPage);
       json = await res.json();
       buffer.push(...json.results);
@@ -115,11 +117,18 @@ class ShipDataProcessor {
 
   printData() {
     if (!this._shipData) return null;
-    
-    let filtered = [...this._shipData].filter((ship) => ship.cost_in_credits !== "unknown");
+
+    // Filter out unknown prices
+    let filtered = [...this._shipData].filter(
+      (ship) => ship.cost_in_credits !== "unknown"
+    );
+
+    // sort ascending
     let sorted = filtered.sort(
       (a, b) => parseInt(a.cost_in_credits) - parseInt(b.cost_in_credits)
     );
+
+    // console log each ship price and name
     for (let ship of sorted) {
       console.log(`${ship.cost_in_credits} - ${ship.name}`);
     }
@@ -140,30 +149,32 @@ class ShipDataProcessor {
     if (!this._shipData) return null;
 
     let leaseExpensiveSeen = Infinity;
+    let leastExpensive = null;
 
     for (let ship of this._shipData) {
       let shipCost = parseInt(ship.cost_in_credits);
       if (shipCost < leaseExpensiveSeen) {
         leaseExpensiveSeen = shipCost;
-        this._leasExpensiveShip = ship;
+        leastExpensive = ship;
       }
     }
-    return this._leasExpensiveShip;
+    return leastExpensive;
   }
 
   mostExpensive() {
     if (!this._shipData) return null;
 
     let mostExpensiveSeen = 0;
+    let mostExpensive = null;
 
     for (let ship of this._shipData) {
       let shipCost = parseInt(ship.cost_in_credits);
       if (shipCost > mostExpensiveSeen) {
         mostExpensiveSeen = shipCost;
-        this._mostExpensiveShip = ship;
+        mostExpensive = ship;
       }
     }
-    return this._mostExpensiveShip;
+    return mostExpensive;
   }
 }
 
