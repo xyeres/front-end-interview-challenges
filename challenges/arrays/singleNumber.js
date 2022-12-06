@@ -11,6 +11,5 @@ var singleNumber = function (nums) {
   return Object.keys(seen)[0];
 };
 
-console.log(
-  singleNumber([4, 2, 1, 1, 2, 7, 8, 7, 8, 9, 9, 22, 33, 22, 33, 500, 4])
-);
+var nums = [4, 2, 1, 1, 2, 7, 8, 7, 8, 9, 9, 22, 33, 22, 33, 500, 4];
+console.log(singleNumber(nums));
