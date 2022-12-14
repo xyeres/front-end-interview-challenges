@@ -9,42 +9,30 @@ const matrix = [
   ["t", "i", "!", "0", "l"],
 ];
 
-function spiral(input) {
-  let output = [];
-  return _spiral(input, output);
-
-  function _spiral(input, output) {
-    if (input.length === 0) {
-      return output;
-    }
-
-    let firstRow = input.shift();
-    if (firstRow) {
-      output.push(...firstRow);
-    }
-
-    for (let row = 0; row < input.length; row++) {
-      let el = input[row].pop();
-      if (el) {
-        output.push(el);
-      }
-    }
-
-    let bottomRow = input.pop();
-    if (bottomRow) {
-      bottomRow = bottomRow.reverse();
-      output.push(...bottomRow);
-    }
-
-    for (let row = input.length - 1; row >= 0; row--) {
-      let el = input[row].shift();
-      if (el) {
-        output.push(el);
-      }
-    }
-
-    return _spiral(input, output);
+function spiral(arr, result = []) {
+  if (arr.length === 0) {
+    return result;
   }
-}
 
+  result.push(...arr.shift());
+
+  // get last column
+  for (let i = 0; i < matrix.length; i++) {
+    result.push(matrix[i].pop());
+  }
+
+  let lastRow = matrix.pop();
+  if (lastRow !== undefined) {
+    while (lastRow.length > 0) {
+      result.push(lastRow.pop());
+    }
+  }
+
+  // get first column
+  for (let len = matrix.length, i = len - 1; i >= 0; i--) {
+    result.push(matrix[i].shift());
+  }
+
+  return spiral(arr, result);
+}
 console.log(spiral(matrix));
