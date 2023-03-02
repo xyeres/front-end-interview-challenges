@@ -97,12 +97,20 @@
 
 function balancedParentheses2(s) {
   let stack = [];
-  let types = { "{": "}", "[": "]", "(": ")" };
+  let types = {
+    "{": "}",
+    "[": "]",
+    "(": ")",
+  };
+
+  let typeValues = Object.values(types);
 
   for (let c of s) {
-    if (types[c]) {
+    if (c in types) {
       stack.push(c);
-    } else {
+    }
+
+    if (typeValues.includes(c)) {
       if (c !== types[stack.pop()]) {
         return false;
       }
@@ -112,4 +120,4 @@ function balancedParentheses2(s) {
 }
 
 console.log(balancedParentheses2("((){}[[[()]]])]"));
-console.log(balancedParentheses2("{[()]}"));
+console.log(balancedParentheses2("{[(asf)adf]}asf"));
